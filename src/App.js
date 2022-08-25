@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { BucketList } from "./BucketList";
-// import "./style.css";
 import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
+//컴포넌트
+import { BucketList } from "./BucketList";
+import { Detail } from "./Detail";
+import { NotFound } from "./NotFound";
 
 const ContainerWrap = styled.div`
     width: 100vw;
@@ -58,7 +61,11 @@ function App() {
             <ListContainer>
                 <h1>내 버킷리스트</h1>
                 <hr className="line" />
-                <BucketList list={list} />
+                <Routes>
+                    <Route path="/" element={<BucketList list={list} />} />
+                    <Route path="detail/:bucketName" element={<Detail />} />
+                    <Route path="/*" element={<NotFound />} />
+                </Routes>
             </ListContainer>
 
             <InputWrap>
