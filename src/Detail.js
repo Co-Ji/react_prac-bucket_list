@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export const Detail = (props) => {
     const bucketName = useParams().bucketName;
-    console.log(bucketName);
+    const navigate = useNavigate();
 
     return (
-        <div>
+        <React.Fragment>
             <div>{bucketName}</div>
-        </div>
+            <button
+                onClick={() => {
+                    navigate(-1);
+                }}
+            >
+                돌아가기
+            </button>
+        </React.Fragment>
     );
 };

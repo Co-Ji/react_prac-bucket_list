@@ -1,16 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export const NotFound = (props) => {
     // React.useEffect(() => {
     //     setTimeout();
     // }, []);
+    const navigate = useNavigate();
 
     return (
         <React.Fragment>
             <h1>주소가 올바르지 않습니다.</h1>
-            <h2>잠시 후 메인 페이지로 이동합니다.</h2>
-            <h2>테스트</h2>
+            <button
+                onClick={() => {
+                    navigate("/", { replace: true });
+                }}
+            >
+                메인으로 이동
+            </button>
         </React.Fragment>
     );
 };
